@@ -19,6 +19,7 @@ from llama_stack.apis.conversations import Conversations
 from llama_stack.apis.datasetio import DatasetIO
 from llama_stack.apis.datasets import Datasets
 from llama_stack.apis.eval import Eval
+from llama_stack.apis.file_processors import FileProcessors
 from llama_stack.apis.files import Files
 from llama_stack.apis.inference import Inference
 from llama_stack.apis.inspect import Inspect
@@ -55,7 +56,6 @@ from llama_stack.core.store.registry import create_dist_registry
 from llama_stack.core.utils.dynamic import instantiate_class_type
 from llama_stack.log import get_logger
 from llama_stack.providers.datatypes import Api
-from llama_stack.apis.file_processors import FileProcessors
 
 logger = get_logger(name=__name__, category="core")
 

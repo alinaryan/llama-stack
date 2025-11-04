@@ -542,6 +542,49 @@ paths:
               $ref: '#/components/schemas/OpenAIEmbeddingsRequestWithExtraBody'
         required: true
       deprecated: false
+  /v1/file-processors/process:
+    post:
+      responses:
+        '200':
+          description: >-
+            ProcessedContent with converted content, optional chunks, embeddings,
+            and processing metadata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessedContent'
+        '400':
+          $ref: '#/components/responses/BadRequest400'
+        '429':
+          $ref: >-
+            #/components/responses/TooManyRequests429
+        '500':
+          $ref: >-
+            #/components/responses/InternalServerError500
+        default:
+          $ref: '#/components/responses/DefaultError'
+      tags:
+        - FileProcessors
+      summary: >-
+        Process a file with optional provider-specific chunking and embedding generation.
+      description: >-
+        Process a file with optional provider-specific chunking and embedding generation.
+
+        Each provider can implement intelligent chunking based on their document understanding:
+
+        - PyPDF: Token-based chunking with overlap
+
+        - Docling: Section-aware chunking respecting document structure
+
+        - Unstructured.io: Element-based chunking (paragraphs, tables, etc.)
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessFileRequest'
+        required: true
+      deprecated: false
   /v1/files:
     get:
       responses:
@@ -4957,6 +5000,152 @@ components:
       title: OpenAIEmbeddingsResponse
       description: >-
         Response from an OpenAI-compatible embeddings request.
+    VectorStoreChunkingStrategy:
+      oneOf:
+        - $ref: '#/components/schemas/VectorStoreChunkingStrategyAuto'
+        - $ref: '#/components/schemas/VectorStoreChunkingStrategyStatic'
+      discriminator:
+        propertyName: type
+        mapping:
+          auto: '#/components/schemas/VectorStoreChunkingStrategyAuto'
+          static: '#/components/schemas/VectorStoreChunkingStrategyStatic'
+    VectorStoreChunkingStrategyAuto:
+      type: object
+      properties:
+        type:
+          type: string
+          const: auto
+          default: auto
+          description: >-
+            Strategy type, always "auto" for automatic chunking
+      additionalProperties: false
+      required:
+        - type
+      title: VectorStoreChunkingStrategyAuto
+      description: >-
+        Automatic chunking strategy for vector store files.
+    VectorStoreChunkingStrategyStatic:
+      type: object
+      properties:
+        type:
+          type: string
+          const: static
+          default: static
+          description: >-
+            Strategy type, always "static" for static chunking
+        static:
+          $ref: '#/components/schemas/VectorStoreChunkingStrategyStaticConfig'
+          description: >-
+            Configuration parameters for the static chunking strategy
+      additionalProperties: false
+      required:
+        - type
+        - static
+      title: VectorStoreChunkingStrategyStatic
+      description: >-
+        Static chunking strategy with configurable parameters.
+    VectorStoreChunkingStrategyStaticConfig:
+      type: object
+      properties:
+        chunk_overlap_tokens:
+          type: integer
+          default: 400
+          description: >-
+            Number of tokens to overlap between adjacent chunks
+        max_chunk_size_tokens:
+          type: integer
+          default: 800
+          description: >-
+            Maximum number of tokens per chunk, must be between 100 and 4096
+      additionalProperties: false
+      required:
+        - chunk_overlap_tokens
+        - max_chunk_size_tokens
+      title: VectorStoreChunkingStrategyStaticConfig
+      description: >-
+        Configuration for static chunking strategy.
+    ProcessFileRequest:
+      type: object
+      properties:
+        file_data:
+          type: string
+          contentEncoding: base64
+          description: The raw file data as bytes
+        filename:
+          type: string
+          description: >-
+            Name of the file (used for format detection and processing hints)
+        options:
+          type: object
+          additionalProperties:
+            oneOf:
+              - type: 'null'
+              - type: boolean
+              - type: number
+              - type: string
+              - type: array
+              - type: object
+          description: >-
+            Optional processing options including: - format: Output format ("markdown",
+            "html", "json", "text") - extract_tables: Enable table extraction (bool)
+            - extract_figures: Enable figure extraction (bool) - ocr_enabled: Enable
+            OCR for images (bool) - processor_specific options
+        chunking_strategy:
+          $ref: '#/components/schemas/VectorStoreChunkingStrategy'
+          description: >-
+            Optional chunking strategy (VectorStoreChunkingStrategy) If provided,
+            provider will chunk content according to strategy
+        include_embeddings:
+          type: boolean
+          description: >-
+            Whether to generate embeddings for chunks (requires chunking_strategy)
+      additionalProperties: false
+      required:
+        - file_data
+        - filename
+        - include_embeddings
+      title: ProcessFileRequest
+    ProcessedContent:
+      type: object
+      properties:
+        content:
+          type: string
+          description: Extracted text content from the file
+        chunks:
+          type: array
+          items:
+            type: string
+          description: >-
+            Optional text chunks when chunking strategy is applied
+        embeddings:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+          description: >-
+            Optional embeddings for chunks when include_embeddings=True
+        metadata:
+          type: object
+          additionalProperties:
+            oneOf:
+              - type: 'null'
+              - type: boolean
+              - type: number
+              - type: string
+              - type: array
+              - type: object
+          description: >-
+            Processing metadata including processor info, timing, chunking details,
+            etc.
+      additionalProperties: false
+      required:
+        - content
+        - metadata
+      title: ProcessedContent
+      description: >-
+        Result of file processing containing extracted content, optional chunks, and
+        metadata.
     OpenAIFilePurpose:
       type: string
       enum:
@@ -9458,70 +9647,6 @@ components:
         - deleted
       title: VectorStoreDeleteResponse
       description: Response from deleting a vector store.
-    VectorStoreChunkingStrategy:
-      oneOf:
-        - $ref: '#/components/schemas/VectorStoreChunkingStrategyAuto'
-        - $ref: '#/components/schemas/VectorStoreChunkingStrategyStatic'
-      discriminator:
-        propertyName: type
-        mapping:
-          auto: '#/components/schemas/VectorStoreChunkingStrategyAuto'
-          static: '#/components/schemas/VectorStoreChunkingStrategyStatic'
-    VectorStoreChunkingStrategyAuto:
-      type: object
-      properties:
-        type:
-          type: string
-          const: auto
-          default: auto
-          description: >-
-            Strategy type, always "auto" for automatic chunking
-      additionalProperties: false
-      required:
-        - type
-      title: VectorStoreChunkingStrategyAuto
-      description: >-
-        Automatic chunking strategy for vector store files.
-    VectorStoreChunkingStrategyStatic:
-      type: object
-      properties:
-        type:
-          type: string
-          const: static
-          default: static
-          description: >-
-            Strategy type, always "static" for static chunking
-        static:
-          $ref: '#/components/schemas/VectorStoreChunkingStrategyStaticConfig'
-          description: >-
-            Configuration parameters for the static chunking strategy
-      additionalProperties: false
-      required:
-        - type
-        - static
-      title: VectorStoreChunkingStrategyStatic
-      description: >-
-        Static chunking strategy with configurable parameters.
-    VectorStoreChunkingStrategyStaticConfig:
-      type: object
-      properties:
-        chunk_overlap_tokens:
-          type: integer
-          default: 400
-          description: >-
-            Number of tokens to overlap between adjacent chunks
-        max_chunk_size_tokens:
-          type: integer
-          default: 800
-          description: >-
-            Maximum number of tokens per chunk, must be between 100 and 4096
-      additionalProperties: false
-      required:
-        - chunk_overlap_tokens
-        - max_chunk_size_tokens
-      title: VectorStoreChunkingStrategyStaticConfig
-      description: >-
-        Configuration for static chunking strategy.
     "OpenAICreateVectorStoreFileBatchRequestWithExtraBody":
       type: object
       properties:
@@ -10147,6 +10272,25 @@ tags:
     description: >-
       Protocol for conversation management operations.
     x-displayName: Conversations
+  - name: FileProcessors
+    description: >-
+      This API provides document processing capabilities for extracting text content
+
+      from various file formats, with optional chunking and embedding generation.
+
+
+      The API supports:
+
+      - File format conversion (PDFs, Word docs, images, etc.)
+
+      - Provider-specific chunking strategies leveraging document understanding
+
+      - Optional embedding generation for chunks
+
+      - Multiple processing providers that can be configured and swapped
+
+      - Integration with vector store ingestion pipelines
+    x-displayName: File Processors
   - name: Files
     description: >-
       This API is used to upload documents that can be used with other Llama Stack
@@ -10206,6 +10350,7 @@ x-tagGroups:
     tags:
       - Agents
       - Conversations
+      - FileProcessors
       - Files
       - Inference
       - Inspect
