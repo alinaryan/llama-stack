@@ -99,7 +99,7 @@ async def main():
     print("=" * 60)
 
     # Set up paths
-    pdf_dir = Path("/home/alina/dev/pdfs/just-text")
+    pdf_dir = Path("test_data/pdfs")
     output_dir = Path("./processor_results")
     output_dir.mkdir(exist_ok=True)
 

@@ -20,7 +20,7 @@ async def test_large_pdf():
     print("=" * 40)
 
     # Test with the travel policy PDF (should be more complex)
-    pdf_path = Path("/home/alina/dev/pdfs/just-text/US-Youth-Soccer-Travel-Policy.pdf")
+    pdf_path = Path("test_data/pdfs/US-Youth-Soccer-Travel-Policy.pdf")
 
     if not pdf_path.exists():
         print(f"❌ PDF not found: {pdf_path}")
