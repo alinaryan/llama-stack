@@ -1,0 +1,11 @@
+ 1998 90 8.5 91% 92%
+85 Schindler's List 1993 93 8.9 97% 96%
+86 Se7en 1995 65 8.7 85% 94%
+87 Shawshank Redemption, The 1994 80 9.2 88% 98%
+88 Sideways 2004 94 7.8 97% 77%
+89 Silence of the Lambs, The 1991 84 8.7 96% 93%
+90 Slumdog Millionaire 2008 86 8.3 94% 90%
+91 Social Network, The 2010 95 8.0 96% 89%
+92 Sunset Blvd. 1950 8.7 98% 95%
+93 Taxi Driver 1976 93 8.6 98% 93%
+94 Terminator, The 198

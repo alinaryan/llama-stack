@@ -1,0 +1,11 @@
+85 7.5 94% 78%
+39 English Patient, The 1996 87 7.3 83% 82%
+40 Godfather, The 1972 100 9.2 100% 97%
+41 Godfather Part II, The 1974 71 9.0 98% 96%
+42 Gone With the Wind 1939 8.2 97% 91%
+43 Goodfellas 1990 89 8.8 97% 96%
+44 History of Violence, A 2005 81 7.6 87% 68%
+45 House of Flying Daggers 2004 89 7.6 88% 81%
+46 Hurt Locker, The 2009 94 7.8 97% 83%
+47 In America 2003 76 7.9 89% 89%
+48 In Bruges 2008 67 

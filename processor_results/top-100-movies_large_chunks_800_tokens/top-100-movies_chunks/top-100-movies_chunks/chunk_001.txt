@@ -1,0 +1,44 @@
+. Strangelove 1964 96 8.6 100% 94%
+37 E.T. the Extraterrestrial 1982 94 7.9 98% 65%
+38 Education, An 2009 85 7.5 94% 78%
+39 English Patient, The 1996 87 7.3 83% 82%
+40 Godfather, The 1972 100 9.2 100% 97%
+41 Godfather Part II, The 1974 71 9.0 98% 96%
+42 Gone With the Wind 1939 8.2 97% 91%
+43 Goodfellas 1990 89 8.8 97% 96%
+44 History of Violence, A 2005 81 7.6 87% 68%
+45 House of Flying Daggers 2004 89 7.6 88% 81%
+46 Hurt Locker, The 2009 94 7.8 97% 83%
+47 In America 2003 76 7.9 89% 89%
+48 In Bruges 2008 67 8.1 81% 85%
+49 In the Bedroom 2001 86 7.5 93% 79%
+50 In the Mood for Love 2000 85 8.1 88% 94%
+51 Inglourious Basterds 2009 69 8.4 88% 87%
+Top 100 Movies
+Film Name Year Meta- IMDb Rotten Tomatoes
+Score Rating Critics Audience
+52 It's a Wonderful Life 1946 8.7 95% 94%
+53 I've Loved You So Long 2008 79 7.6 89% 85%
+54 Jaws 1975 79 8.3 100% 81%
+55 Judgment at Nuremberg 1961 8.3 89% 91%
+56 Juno 2007 81 7.9 93% 89%
+57 King's Speech, The 2010 88 8.5 95% 95%
+58 LA Confidential 1997 90 8.4 99% 90%
+59 Lives of Others, The 2006 89 8.5 93% 95%
+60 Lust, Caution 2007 61 7.6 72% 83%
+61 M 1931 8.6 100% 94%
+62 Maltese Falcon, The 1941 8.4 100% 90%
+63 Match Point 2005 72 7.8 77% 78%
+64 Memento 2000 80 8.7 93% 93%
+65 Michael Clayton 2007 82 7.5 90% 72%
+66 Million Dollar Baby 2004 86 8.2 91% 87%
+67 Minority Report 2002 80 7.7 92% 74%
+68 Mr. Nobody 2009  7.7  78%
+69 Mr. Smith Goes to Washington 1939 8.4 97% 92%
+70 Mulholland Drive 2001 81 8.0 81% 88%
+71 Mystic River 2003 84 8.0 87% 86%
+72 Network 1976 8.1 90% 93%
+73 Notorious 1946 8.3 97% 90%
+74 On the Waterfront 1954 88 8.4 100% 94%
+75 Once 2006 88 8.0 97% 90%
+76 Once Upon a Time in America 1984 8

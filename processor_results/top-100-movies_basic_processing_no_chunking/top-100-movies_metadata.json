@@ -1,0 +1,11 @@
+{
+  "pages": 2,
+  "processor": "pypdf",
+  "processing_time_seconds": 0.11404037475585938,
+  "content_length": 4052,
+  "filename": "top-100-movies.pdf",
+  "file_size_bytes": 49765,
+  "chunking_strategy": null,
+  "chunk_count": 0,
+  "include_embeddings": false
+}

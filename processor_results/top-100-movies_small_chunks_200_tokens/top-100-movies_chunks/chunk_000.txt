@@ -1,0 +1,13 @@
+Top 100 Movies
+Film Name Year Meta- IMDb Rotten Tomatoes
+Score Rating Critics Audience
+1 12 Angry Men 1957 8.9 100% 95%
+2 25th Hour 2002 67 7.9 78% 83%
+3 (500) Days of Summer 2009 76 8.0 87% 81%
+4 2046 2004 78 7.5 84% 84%
+5 Adaptation 2002 83 7.9 91% 82%
+6 African Queen, The 1951 8.0 100% 87%
+7 Age of Innocence, The 1993 83 7.2 81% 73%
+8 All About Eve 1950 8.5 100% 94%
+9 All the President's Men 1976 8.0 100% 89%
+10 Almost Famous 2000

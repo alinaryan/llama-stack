@@ -1,0 +1,106 @@
+Top 100 Movies
+Film Name Year Meta- IMDb Rotten Tomatoes
+Score Rating Critics Audience
+1 12 Angry Men 1957 8.9 100% 95%
+2 25th Hour 2002 67 7.9 78% 83%
+3 (500) Days of Summer 2009 76 8.0 87% 81%
+4 2046 2004 78 7.5 84% 84%
+5 Adaptation 2002 83 7.9 91% 82%
+6 African Queen, The 1951 8.0 100% 87%
+7 Age of Innocence, The 1993 83 7.2 81% 73%
+8 All About Eve 1950 8.5 100% 94%
+9 All the President's Men 1976 8.0 100% 89%
+10 Almost Famous 2000 90 8.0 88% 89%
+11 Amelie 2001 69 8.6 90% 95%
+12 American Beauty 1999 86 8.5 89% 90%
+13 Apocalypse Now 1979 90 8.6 98% 93%
+14 Atonement 2007 85 7.8 83% 79%
+15 Before Sunrise 1995 77 8.1 100% 92%
+16 Before Sunset 2004 90 8.1 95% 90%
+17 Best Years of our Lives, The 1946 8.3 97% 91%
+18 Black Swan 2010 79 8.5 88% 87%
+19 Bonnie and Clyde 1967 81 8.0 89% 84%
+20 Bourne Ultimatum, The 2007 85 8.2 93% 91%
+21 Bridge on the River Kwai, The 1957 8.4 95% 90%
+22 Brokeback Mountain 2005 87 7.8 87% 77%
+23 Caché 2005 83 7.3 88% 71%
+24 Casablanca 1943 8.8 97% 94%
+25 Chinatown 1974 86 8.5 100% 92%
+26 Cinema Paradiso 1988 79 8.5 89% 96%
+27 Citizen Kane 1941 8.6 100% 91%
+28 Closer 2004 65 7.4 68% 80%
+29 Constant Gardener, The 2005 82 7.6 83% 81%
+30 Contender, The 2000 59 6.9 76% 71%
+31 Cool Hand Luke 1967 8.3 100% 93%
+32 Crouching Tiger, Hidden Dragon 2000 93 8.0 97% 81%
+33 Dark Knight, The 2008 82 8.9 94% 96%
+34 Departed, The 2006 86 8.5 93% 92%
+35 Diving Bell and the Butterfly, The 2007 92 8.1 93% 91%
+36 Dr. Strangelove 1964 96 8.6 100% 94%
+37 E.T. the Extraterrestrial 1982 94 7.9 98% 65%
+38 Education, An 2009 85 7.5 94% 78%
+39 English Patient, The 1996 87 7.3 83% 82%
+40 Godfather, The 1972 100 9.2 100% 97%
+41 Godfather Part II, The 1974 71 9.0 98% 96%
+42 Gone With the Wind 1939 8.2 97% 91%
+43 Goodfellas 1990 89 8.8 97% 96%
+44 History of Violence, A 2005 81 7.6 87% 68%
+45 House of Flying Daggers 2004 89 7.6 88% 81%
+46 Hurt Locker, The 2009 94 7.8 97% 83%
+47 In America 2003 76 7.9 89% 89%
+48 In Bruges 2008 67 8.1 81% 85%
+49 In the Bedroom 2001 86 7.5 93% 79%
+50 In the Mood for Love 2000 85 8.1 88% 94%
+51 Inglourious Basterds 2009 69 8.4 88% 87%
+Top 100 Movies
+Film Name Year Meta- IMDb Rotten Tomatoes
+Score Rating Critics Audience
+52 It's a Wonderful Life 1946 8.7 95% 94%
+53 I've Loved You So Long 2008 79 7.6 89% 85%
+54 Jaws 1975 79 8.3 100% 81%
+55 Judgment at Nuremberg 1961 8.3 89% 91%
+56 Juno 2007 81 7.9 93% 89%
+57 King's Speech, The 2010 88 8.5 95% 95%
+58 LA Confidential 1997 90 8.4 99% 90%
+59 Lives of Others, The 2006 89 8.5 93% 95%
+60 Lust, Caution 2007 61 7.6 72% 83%
+61 M 1931 8.6 100% 94%
+62 Maltese Falcon, The 1941 8.4 100% 90%
+63 Match Point 2005 72 7.8 77% 78%
+64 Memento 2000 80 8.7 93% 93%
+65 Michael Clayton 2007 82 7.5 90% 72%
+66 Million Dollar Baby 2004 86 8.2 91% 87%
+67 Minority Report 2002 80 7.7 92% 74%
+68 Mr. Nobody 2009  7.7  78%
+69 Mr. Smith Goes to Washington 1939 8.4 97% 92%
+70 Mulholland Drive 2001 81 8.0 81% 88%
+71 Mystic River 2003 84 8.0 87% 86%
+72 Network 1976 8.1 90% 93%
+73 Notorious 1946 8.3 97% 90%
+74 On the Waterfront 1954 88 8.4 100% 94%
+75 Once 2006 88 8.0 97% 90%
+76 Once Upon a Time in America 1984 8.4 88% 92%
+77 One Flew Over the Cuckoo's Nest 1975 79 8.9 96% 95%
+78 Pan's Labyrinth 2006 98 8.4 95% 90%
+79 Primal Fear 1996 47 7.7 73% 85%
+80 Princess Bride, The 1987 77 8.1 96% 92%
+81 Pulp Fiction 1994 94 9.0 94% 95%
+82 Quiz Show 1994 88 7.5 96% 80%
+83 Rear Window 1954 8.7 100% 95%
+84 Saving Private Ryan 1998 90 8.5 91% 92%
+85 Schindler's List 1993 93 8.9 97% 96%
+86 Se7en 1995 65 8.7 85% 94%
+87 Shawshank Redemption, The 1994 80 9.2 88% 98%
+88 Sideways 2004 94 7.8 97% 77%
+89 Silence of the Lambs, The 1991 84 8.7 96% 93%
+90 Slumdog Millionaire 2008 86 8.3 94% 90%
+91 Social Network, The 2010 95 8.0 96% 89%
+92 Sunset Blvd. 1950 8.7 98% 95%
+93 Taxi Driver 1976 93 8.6 98% 93%
+94 Terminator, The 1984 84 8.1 100% 81%
+95 Terminator 2: Judgment Day 1991 68 8.6 98% 88%
+96 Third Man, The 1950 8.4 100% 94%
+97 To Kill a Mockingbird 1962 8.5 95% 91%
+98 Up in the Air 2009 83 7.8 90% 76%
+99 Verdict, The 1982 7.7 96% 85%
+100 Way We Were, The 1973 6.9 63% 81%

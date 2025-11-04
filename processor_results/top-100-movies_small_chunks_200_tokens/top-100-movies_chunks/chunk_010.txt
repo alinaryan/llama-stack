@@ -1,0 +1,11 @@
+.4 88% 92%
+77 One Flew Over the Cuckoo's Nest 1975 79 8.9 96% 95%
+78 Pan's Labyrinth 2006 98 8.4 95% 90%
+79 Primal Fear 1996 47 7.7 73% 85%
+80 Princess Bride, The 1987 77 8.1 96% 92%
+81 Pulp Fiction 1994 94 9.0 94% 95%
+82 Quiz Show 1994 88 7.5 96% 80%
+83 Rear Window 1954 8.7 100% 95%
+84 Saving Private Ryan 1998 90 8.5 91% 92%
+85 Schindler's List 1993 93 8.9 97% 96%
+86 Se7en 1995 65 8.7 

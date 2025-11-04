@@ -1,0 +1,11 @@
+2005 83 7.3 88% 71%
+24 Casablanca 1943 8.8 97% 94%
+25 Chinatown 1974 86 8.5 100% 92%
+26 Cinema Paradiso 1988 79 8.5 89% 96%
+27 Citizen Kane 1941 8.6 100% 91%
+28 Closer 2004 65 7.4 68% 80%
+29 Constant Gardener, The 2005 82 7.6 83% 81%
+30 Contender, The 2000 59 6.9 76% 71%
+31 Cool Hand Luke 1967 8.3 100% 93%
+32 Crouching Tiger, Hidden Dragon 2000 93 8.0 97% 81%
+33 Dark Knight, The 2008 82 8.9 94

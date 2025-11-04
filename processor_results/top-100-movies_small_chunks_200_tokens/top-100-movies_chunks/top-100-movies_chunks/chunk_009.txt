@@ -1,0 +1,11 @@
+ 2009  7.7  78%
+69 Mr. Smith Goes to Washington 1939 8.4 97% 92%
+70 Mulholland Drive 2001 81 8.0 81% 88%
+71 Mystic River 2003 84 8.0 87% 86%
+72 Network 1976 8.1 90% 93%
+73 Notorious 1946 8.3 97% 90%
+74 On the Waterfront 1954 88 8.4 100% 94%
+75 Once 2006 88 8.0 97% 90%
+76 Once Upon a Time in America 1984 8.4 88% 92%
+77 One Flew Over the Cuckoo's Nest 1975 79 8.9 96% 95%
+78 Pan's Labyrinth 2006 98 8.4 95

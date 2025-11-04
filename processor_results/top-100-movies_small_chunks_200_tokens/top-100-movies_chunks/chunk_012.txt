@@ -1,0 +1,10 @@
+8.0 96% 89%
+92 Sunset Blvd. 1950 8.7 98% 95%
+93 Taxi Driver 1976 93 8.6 98% 93%
+94 Terminator, The 1984 84 8.1 100% 81%
+95 Terminator 2: Judgment Day 1991 68 8.6 98% 88%
+96 Third Man, The 1950 8.4 100% 94%
+97 To Kill a Mockingbird 1962 8.5 95% 91%
+98 Up in the Air 2009 83 7.8 90% 76%
+99 Verdict, The 1982 7.7 96% 85%
+100 Way We Were, The 1973 6.9 63% 81%

@@ -1,0 +1,17 @@
+{
+  "pages": 2,
+  "processor": "pypdf",
+  "processing_time_seconds": 0.05234932899475098,
+  "content_length": 4052,
+  "filename": "top-100-movies.pdf",
+  "file_size_bytes": 49765,
+  "chunking_strategy": {
+    "type": "static",
+    "static": {
+      "chunk_overlap_tokens": 100,
+      "max_chunk_size_tokens": 800
+    }
+  },
+  "chunk_count": 3,
+  "include_embeddings": false
+}
