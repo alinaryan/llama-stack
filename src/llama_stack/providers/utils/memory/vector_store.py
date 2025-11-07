@@ -23,7 +23,14 @@ from llama_stack.apis.common.content_types import (
 )
 from llama_stack.apis.inference import OpenAIEmbeddingsRequestWithExtraBody
 from llama_stack.apis.tools import RAGDocument
-from llama_stack.apis.vector_io import Chunk, ChunkMetadata, QueryChunksResponse
+from llama_stack.apis.vector_io import (
+    Chunk,
+    ChunkMetadata,
+    QueryChunksResponse,
+    VectorStoreChunkingStrategy,
+    VectorStoreChunkingStrategyStatic,
+    VectorStoreChunkingStrategyStaticConfig,
+)
 from llama_stack.apis.vector_stores import VectorStore
 from llama_stack.log import get_logger
 from llama_stack.models.llama.llama3.tokenizer import Tokenizer
@@ -202,6 +209,32 @@ def make_overlapped_chunks(
         )
 
     return chunks
+
+
+def extract_chunk_params_from_strategy(
+    chunking_strategy: VectorStoreChunkingStrategy | None,
+    default_chunk_size: int = VectorStoreChunkingStrategyStaticConfig.model_fields["max_chunk_size_tokens"].default,
+    default_chunk_overlap: int = VectorStoreChunkingStrategyStaticConfig.model_fields["chunk_overlap_tokens"].default,
+) -> tuple[int, int]:
+    """
+    Extract chunk size and overlap parameters from a chunking strategy.
+
+    Args:
+        chunking_strategy: The chunking strategy to extract parameters from
+        default_chunk_size: Default chunk size if strategy is None or auto
+        default_chunk_overlap: Default chunk overlap if strategy is None or auto
+
+    Returns:
+        Tuple of (chunk_size_tokens, chunk_overlap_tokens)
+    """
+    if isinstance(chunking_strategy, VectorStoreChunkingStrategyStatic):
+        return (
+            chunking_strategy.static.max_chunk_size_tokens,
+            chunking_strategy.static.chunk_overlap_tokens,
+        )
+    else:
+        # Default for auto strategy or None
+        return (default_chunk_size, default_chunk_overlap)
 
 
 def _validate_embedding(embedding: NDArray, index: int, expected_dimension: int):

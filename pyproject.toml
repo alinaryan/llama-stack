@@ -50,6 +50,11 @@ dependencies = [
     "asyncpg", # for metadata store
     "sqlalchemy[asyncio]>=2.0.41", # server - for conversations
     "reportlab>=4.4.4",
+    "torch>=2.8.0",
+    "torchvision>=0.23.0",
+    "docling>=2.60.1",
+    "docling-core[chunking]>=2.50.1",
+    "pypdf>=5.9.0",
 ]
 
 [project.optional-dependencies]

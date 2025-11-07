@@ -16,6 +16,7 @@ from llama_stack.apis.datasetio import DatasetIO
 from llama_stack.apis.datasets import Datasets
 from llama_stack.apis.datatypes import ExternalApiSpec
 from llama_stack.apis.eval import Eval
+from llama_stack.apis.file_processors import FileProcessors
 from llama_stack.apis.files import Files
 from llama_stack.apis.inference import Inference, InferenceProvider
 from llama_stack.apis.inspect import Inspect
@@ -93,6 +94,7 @@ def api_protocol_map(external_apis: dict[Api, ExternalApiSpec] | None = None) ->
         Api.post_training: PostTraining,
         Api.tool_groups: ToolGroups,
         Api.tool_runtime: ToolRuntime,
+        Api.file_processors: FileProcessors,
         Api.files: Files,
         Api.prompts: Prompts,
         Api.conversations: Conversations,

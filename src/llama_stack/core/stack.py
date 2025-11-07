@@ -199,6 +199,22 @@ async def validate_safety_config(safety_config: SafetyConfig | None, impls: dict
         )
 
 
+async def validate_file_processor_config(vector_stores_config: VectorStoresConfig | None, impls: dict[Api, Any]):
+    """Validate file processor configuration when vector stores are configured."""
+    if vector_stores_config is None:
+        return
+
+    # Check if vector stores configuration includes file processing capabilities
+    # If vector stores are configured, file processors might be needed for document ingestion
+    if hasattr(vector_stores_config, "file_processing_enabled") and vector_stores_config.file_processing_enabled:
+        if Api.file_processors not in impls:
+            raise ValueError(
+                "Vector stores configuration with file processing requires the file_processors API to be enabled"
+            )
+
+    logger.debug("File processor configuration validation completed")
+
+
 class EnvVarError(Exception):
     def __init__(self, var_name: str, path: str = ""):
         self.var_name = var_name
@@ -437,6 +453,7 @@ class Stack:
         await refresh_registry_once(impls)
         await validate_vector_stores_config(self.run_config.vector_stores, impls)
         await validate_safety_config(self.run_config.safety, impls)
+        await validate_file_processor_config(self.run_config.vector_stores, impls)
         self.impls = impls
 
     def create_registry_refresh_task(self):
