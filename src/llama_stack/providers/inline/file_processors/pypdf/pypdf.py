@@ -11,7 +11,6 @@ from typing import Any
 from llama_stack.apis.file_processors import FileProcessors, ProcessedContent
 from llama_stack.apis.vector_io.vector_io import VectorStoreChunkingStrategy
 from llama_stack.log import get_logger
-from llama_stack.providers.utils.inference.prompt_adapter import interleaved_content_as_str
 from llama_stack.providers.utils.memory.vector_store import make_overlapped_chunks
 
 from .config import PyPDFConfig
@@ -37,7 +36,7 @@ class PyPDFFileProcessorImpl(FileProcessors):
 
         try:
             # Import here to avoid dependency issues if pypdf not installed
-            from pypdf import PdfReader
+            from pypdf import PdfReader  # type: ignore[import-not-found] # pypdf is optional dependency
 
             # Migrate existing 3-line logic from vector_store.py
             pdf_reader = PdfReader(io.BytesIO(file_data))
@@ -78,8 +77,8 @@ class PyPDFFileProcessorImpl(FileProcessors):
                     metadata=document_metadata,
                 )
 
-                # Extract text content from chunk objects and convert to strings
-                chunks = [interleaved_content_as_str(chunk.content) for chunk in chunk_objects]
+                # Use the chunk objects directly (they are already in the correct Chunk format)
+                chunks = chunk_objects
                 chunk_count = len(chunks)
 
                 # Generate embeddings if requested

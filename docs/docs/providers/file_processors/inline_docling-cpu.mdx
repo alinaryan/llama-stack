@@ -1,0 +1,33 @@
+---
+description: "Advanced document processing using Docling with CPU-optimized PyTorch for smaller deployments"
+sidebar_label: Docling-Cpu
+title: inline::docling-cpu
+---
+
+# inline::docling-cpu
+
+## Description
+
+Advanced document processing using Docling with CPU-optimized PyTorch for smaller deployments
+
+## Configuration
+
+| Field | Type | Required | Default | Description |
+|-------|------|----------|---------|-------------|
+| `timeout_seconds` | `<class 'int'>` | No | 120 | Processing timeout in seconds |
+| `max_file_size_mb` | `<class 'int'>` | No | 100 | Maximum file size in MB |
+| `model_cache_dir` | `str \| None` | No |  | Directory to cache Docling models |
+| `enable_gpu` | `<class 'bool'>` | No | False | Enable GPU acceleration if available |
+| `default_chunk_size_tokens` | `<class 'int'>` | No | 800 | Default chunk size in tokens when no chunking strategy is specified |
+| `default_chunk_overlap_tokens` | `<class 'int'>` | No | 400 | Default chunk overlap in tokens when no chunking strategy is specified |
+
+## Sample Configuration
+
+```yaml
+timeout_seconds: 120
+max_file_size_mb: 100
+model_cache_dir: null
+enable_gpu: false
+default_chunk_size_tokens: 800
+default_chunk_overlap_tokens: 400
+```
