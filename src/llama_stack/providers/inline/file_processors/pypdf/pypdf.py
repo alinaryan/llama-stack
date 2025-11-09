@@ -4,6 +4,7 @@
 # This source code is licensed under the terms described in the LICENSE file in
 # the root directory of this source tree.
 
+import base64
 import io
 import time
 from typing import Any
@@ -32,6 +33,19 @@ class PyPDFFileProcessorImpl(FileProcessors):
         include_embeddings: bool = False,
     ) -> ProcessedContent:
         start_time = time.time()
+
+        # Handle base64 encoded file data from JSON requests
+        if isinstance(file_data, str):
+            if not file_data:
+                raise ValueError("Empty file data provided")
+            file_data = base64.b64decode(file_data)
+            logger.debug(f"Decoded base64 file data: {len(file_data)} bytes")
+        elif not isinstance(file_data, bytes):
+            raise TypeError(f"file_data must be bytes or base64 string, got {type(file_data)}")
+
+        if len(file_data) == 0:
+            raise ValueError("Empty file data after processing")
+
         logger.info(f"Processing PDF file: {filename}, size: {len(file_data)} bytes")
 
         try:
