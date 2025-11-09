@@ -3990,7 +3990,7 @@ paths:
         default:
           $ref: '#/components/responses/DefaultError'
       tags:
-        - FileProcessors
+        - FileProcessor
       summary: >-
         Process a file with optional provider-specific chunking and embedding generation.
       description: >-
@@ -13666,7 +13666,7 @@ tags:
     description: >-
       Llama Stack Evaluation API for running evaluations on model and agent candidates.
     x-displayName: Evaluations
-  - name: FileProcessors
+  - name: FileProcessor
     description: >-
       This API provides document processing capabilities for extracting text content
 
@@ -13750,7 +13750,7 @@ x-tagGroups:
       - DatasetIO
       - Datasets
       - Eval
-      - FileProcessors
+      - FileProcessor
       - Files
       - Inference
       - Inspect

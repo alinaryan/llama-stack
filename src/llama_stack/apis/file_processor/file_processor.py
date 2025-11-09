@@ -33,7 +33,7 @@ class ProcessedContent(BaseModel):
 
 @runtime_checkable
 @trace_protocol
-class FileProcessors(Protocol):
+class FileProcessor(Protocol):
     """File Processor
 
     This API provides document processing capabilities for extracting text content

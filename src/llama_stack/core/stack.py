@@ -19,7 +19,7 @@ from llama_stack.apis.conversations import Conversations
 from llama_stack.apis.datasetio import DatasetIO
 from llama_stack.apis.datasets import Datasets
 from llama_stack.apis.eval import Eval
-from llama_stack.apis.file_processors import FileProcessors
+from llama_stack.apis.file_processor import FileProcessor
 from llama_stack.apis.files import Files
 from llama_stack.apis.inference import Inference
 from llama_stack.apis.inspect import Inspect
@@ -83,7 +83,7 @@ class LlamaStack(
     Files,
     Prompts,
     Conversations,
-    FileProcessors,
+    FileProcessor,
 ):
     pass
 
@@ -207,9 +207,9 @@ async def validate_file_processor_config(vector_stores_config: VectorStoresConfi
     # Check if vector stores configuration includes file processing capabilities
     # If vector stores are configured, file processors might be needed for document ingestion
     if hasattr(vector_stores_config, "file_processing_enabled") and vector_stores_config.file_processing_enabled:
-        if Api.file_processors not in impls:
+        if Api.file_processor not in impls:
             raise ValueError(
-                "Vector stores configuration with file processing requires the file_processors API to be enabled"
+                "Vector stores configuration with file processing requires the file_processor API to be enabled"
             )
 
     logger.debug("File processor configuration validation completed")

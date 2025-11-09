@@ -10,7 +10,7 @@ import time
 from pathlib import Path
 from typing import Any
 
-from llama_stack.apis.file_processors import FileProcessors, ProcessedContent
+from llama_stack.apis.file_processor import FileProcessor, ProcessedContent
 from llama_stack.apis.vector_io.vector_io import Chunk, VectorStoreChunkingStrategy
 from llama_stack.log import get_logger
 from llama_stack.providers.utils.memory.vector_store import extract_chunk_params_from_strategy
@@ -20,7 +20,7 @@ from .config import DoclingConfig
 logger = get_logger(__name__)
 
 
-class DoclingFileProcessorImpl(FileProcessors):
+class DoclingFileProcessorImpl(FileProcessor):
     def __init__(self, config: DoclingConfig):
         self.config = config
         self.converter: Any = None

@@ -82,7 +82,7 @@ class DynamicApiMeta(EnumMeta):
 @json_schema_type
 class Api(Enum, metaclass=DynamicApiMeta):
     """Enumeration of all available APIs in the Llama Stack system.
-    :cvar file_processors: File processing and conversion to markdown
+    :cvar file_processor: File processing and conversion to markdown
     :cvar providers: Provider management and configuration
     :cvar inference: Text generation, chat completions, and embeddings
     :cvar safety: Content moderation and safety shields
@@ -106,7 +106,7 @@ class Api(Enum, metaclass=DynamicApiMeta):
     :cvar inspect: Built-in system inspection and introspection
     """
 
-    file_processors = "file_processors"
+    file_processor = "file_processor"
     providers = "providers"
     inference = "inference"
     safety = "safety"

@@ -367,12 +367,12 @@ class VectorStoresConfig(BaseModel):
     )
 
 
-class FileProcessorsConfig(BaseModel):
+class FileProcessorConfig(BaseModel):
     """Configuration for file processors in the stack."""
 
     default_provider_id: str = Field(
         default="inline::pypdf",
-        description="ID of the file_processors provider to use as default when multiple providers are available and none is specified.",
+        description="ID of the file_processor provider to use as default when multiple providers are available and none is specified.",
     )
     enable_vector_store_integration: bool = Field(
         default=False,
@@ -551,7 +551,7 @@ can be instantiated multiple times (with different configs) if necessary.
         description="Configuration for vector stores, including default embedding model",
     )
 
-    file_processors: FileProcessorsConfig | None = Field(
+    file_processor: FileProcessorConfig | None = Field(
         default=None,
         description="Configuration for file processors, including default provider and vector store integration",
     )

@@ -11,10 +11,10 @@ from llama_stack.providers.datatypes import Api, InlineProviderSpec, ProviderSpe
 # We provide two versions of the Docling provider so that distributions can package the appropriate version of torch.
 # The CPU version is used for distributions that don't have GPU support -- they result in smaller container images.
 docling_def = dict(
-    api=Api.file_processors,
+    api=Api.file_processor,
     pip_packages=["docling", "docling-core[chunking]"],
-    module="llama_stack.providers.inline.file_processors.docling",
-    config_class="llama_stack.providers.inline.file_processors.docling.DoclingConfig",
+    module="llama_stack.providers.inline.file_processor.docling",
+    config_class="llama_stack.providers.inline.file_processor.docling.DoclingConfig",
     description="Advanced document processing using Docling with table/figure extraction and native chunking",
 )
 
@@ -23,11 +23,11 @@ def available_providers() -> list[ProviderSpec]:
     return [
         # PyPDF - Default provider for backward compatibility
         InlineProviderSpec(
-            api=Api.file_processors,
+            api=Api.file_processor,
             provider_type="inline::pypdf",
             pip_packages=["pypdf"],
-            module="llama_stack.providers.inline.file_processors.pypdf",
-            config_class="llama_stack.providers.inline.file_processors.pypdf.PyPDFConfig",
+            module="llama_stack.providers.inline.file_processor.pypdf",
+            config_class="llama_stack.providers.inline.file_processor.pypdf.PyPDFConfig",
             description="Simple PDF text extraction using PyPDF library. Default processor for backward compatibility.",
         ),
         # Docling CPU - Advanced inline processing optimized for CPU-only environments

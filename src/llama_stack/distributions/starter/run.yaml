@@ -7,7 +7,6 @@ apis:
 - eval
 - files
 - inference
-- file_processors
 - post_training
 - safety
 - scoring
@@ -152,10 +151,6 @@ providers:
       metadata_store:
         table_name: files_metadata
         backend: sql_default
-  file_processors:
-  - provider_id: pypdf
-    provider_type: inline::pypdf
-    config: {}
   safety:
   - provider_id: llama-guard
     provider_type: inline::llama-guard

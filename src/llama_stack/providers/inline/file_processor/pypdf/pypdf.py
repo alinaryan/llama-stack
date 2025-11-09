@@ -9,7 +9,7 @@ import io
 import time
 from typing import Any
 
-from llama_stack.apis.file_processors import FileProcessors, ProcessedContent
+from llama_stack.apis.file_processor import FileProcessor, ProcessedContent
 from llama_stack.apis.vector_io.vector_io import VectorStoreChunkingStrategy
 from llama_stack.log import get_logger
 from llama_stack.providers.utils.memory.vector_store import make_overlapped_chunks
@@ -19,7 +19,7 @@ from .config import PyPDFConfig
 logger = get_logger(__name__)
 
 
-class PyPDFFileProcessorImpl(FileProcessors):
+class PyPDFFileProcessorImpl(FileProcessor):
     def __init__(self, config: PyPDFConfig):
         self.config = config
         logger.info("PyPDF processor initialized")

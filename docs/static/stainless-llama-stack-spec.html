@@ -5373,7 +5373,7 @@
                     }
                 },
                 "tags": [
-                    "FileProcessors"
+                    "FileProcessor"
                 ],
                 "summary": "Process a file with optional provider-specific chunking and embedding generation.",
                 "description": "Process a file with optional provider-specific chunking and embedding generation.\nEach provider can implement intelligent chunking based on their document understanding:\n- PyPDF: Token-based chunking with overlap.\n- Docling: Section-aware chunking respecting document structure.\n- Unstructured.io: Element-based chunking (paragraphs, tables, etc.).",
@@ -18142,7 +18142,7 @@
             "x-displayName": "Evaluations"
         },
         {
-            "name": "FileProcessors",
+            "name": "FileProcessor",
             "description": "This API provides document processing capabilities for extracting text content\nfrom various file formats, with optional chunking and embedding generation.\n\nThe API supports:\n- File format conversion (PDFs, Word docs, images, etc.)\n- Provider-specific chunking strategies leveraging document understanding\n- Optional embedding generation for chunks\n- Multiple processing providers that can be configured and swapped\n- Integration with vector store ingestion pipelines",
             "x-displayName": "File Processor"
         },
@@ -18223,7 +18223,7 @@
                 "DatasetIO",
                 "Datasets",
                 "Eval",
-                "FileProcessors",
+                "FileProcessor",
                 "Files",
                 "Inference",
                 "Inspect",
