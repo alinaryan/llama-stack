@@ -3968,6 +3968,49 @@ paths:
           schema:
             type: string
       deprecated: false
+  /v1alpha/file-processor/process:
+    post:
+      responses:
+        '200':
+          description: >-
+            ProcessedContent with converted content, optional chunks, embeddings,
+            and processing metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessedContent'
+        '400':
+          $ref: '#/components/responses/BadRequest400'
+        '429':
+          $ref: >-
+            #/components/responses/TooManyRequests429
+        '500':
+          $ref: >-
+            #/components/responses/InternalServerError500
+        default:
+          $ref: '#/components/responses/DefaultError'
+      tags:
+        - FileProcessor
+      summary: >-
+        Process a file with optional provider-specific chunking and embedding generation.
+      description: >-
+        Process a file with optional provider-specific chunking and embedding generation.
+
+        Each provider can implement intelligent chunking based on their document understanding:
+
+        - PyPDF: Token-based chunking with overlap.
+
+        - Docling: Section-aware chunking respecting document structure.
+
+        - Unstructured.io: Element-based chunking (paragraphs, tables, etc.).
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessFileRequest'
+        required: true
+      deprecated: false
   /v1alpha/inference/rerank:
     post:
       responses:
@@ -12877,6 +12920,88 @@ components:
       title: Job
       description: >-
         A job execution instance with status tracking.
+    ProcessFileRequest:
+      type: object
+      properties:
+        file_data:
+          type: string
+          contentEncoding: base64
+          description: The raw file data as bytes.
+        filename:
+          type: string
+          description: >-
+            Name of the file (used for format detection and processing hints).
+        options:
+          type: object
+          additionalProperties:
+            oneOf:
+              - type: 'null'
+              - type: boolean
+              - type: number
+              - type: string
+              - type: array
+              - type: object
+          description: >-
+            Optional processing options including: - format: Output format ("markdown",
+            "html", "json", "text"). - extract_tables: Enable table extraction (bool).
+            - extract_figures: Enable figure extraction (bool). - ocr_enabled: Enable
+            OCR for images (bool). - processor_specific options.
+        chunking_strategy:
+          $ref: '#/components/schemas/VectorStoreChunkingStrategy'
+          description: >-
+            Optional chunking strategy (VectorStoreChunkingStrategy). If provided,
+            provider will chunk content according to strategy.
+        include_embeddings:
+          type: boolean
+          description: >-
+            Whether to generate embeddings for chunks (requires chunking_strategy).
+      additionalProperties: false
+      required:
+        - file_data
+        - filename
+        - include_embeddings
+      title: ProcessFileRequest
+    ProcessedContent:
+      type: object
+      properties:
+        content:
+          type: string
+          description: Extracted text content from the file
+        chunks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Chunk'
+          description: >-
+            Optional chunks when chunking strategy is applied
+        embeddings:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+          description: >-
+            Optional embeddings for chunks when include_embeddings=True
+        metadata:
+          type: object
+          additionalProperties:
+            oneOf:
+              - type: 'null'
+              - type: boolean
+              - type: number
+              - type: string
+              - type: array
+              - type: object
+          description: >-
+            Processing metadata including processor info, timing, chunking details,
+            etc.
+      additionalProperties: false
+      required:
+        - content
+        - metadata
+      title: ProcessedContent
+      description: >-
+        Result of file processing containing extracted content, optional chunks, and
+        metadata.
     RerankRequest:
       type: object
       properties:
@@ -13541,6 +13666,25 @@ tags:
     description: >-
       Llama Stack Evaluation API for running evaluations on model and agent candidates.
     x-displayName: Evaluations
+  - name: FileProcessor
+    description: >-
+      This API provides document processing capabilities for extracting text content
+
+      from various file formats, with optional chunking and embedding generation.
+
+
+      The API supports:
+
+      - File format conversion (PDFs, Word docs, images, etc.)
+
+      - Provider-specific chunking strategies leveraging document understanding
+
+      - Optional embedding generation for chunks
+
+      - Multiple processing providers that can be configured and swapped
+
+      - Integration with vector store ingestion pipelines
+    x-displayName: File Processor
   - name: Files
     description: >-
       This API is used to upload documents that can be used with other Llama Stack
@@ -13606,6 +13750,7 @@ x-tagGroups:
       - DatasetIO
       - Datasets
       - Eval
+      - FileProcessor
       - Files
       - Inference
       - Inspect

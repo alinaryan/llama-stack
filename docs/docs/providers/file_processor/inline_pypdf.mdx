@@ -1,0 +1,31 @@
+---
+description: "Simple PDF text extraction using PyPDF library. Default processor for backward compatibility."
+sidebar_label: Pypdf
+title: inline::pypdf
+---
+
+# inline::pypdf
+
+## Description
+
+Simple PDF text extraction using PyPDF library. Default processor for backward compatibility.
+
+## Configuration
+
+| Field | Type | Required | Default | Description |
+|-------|------|----------|---------|-------------|
+| `timeout_seconds` | `<class 'int'>` | No | 30 | Processing timeout in seconds |
+| `max_file_size_mb` | `<class 'int'>` | No | 50 | Maximum file size in MB |
+| `default_chunk_size_tokens` | `<class 'int'>` | No | 800 | Default chunk size in tokens when no chunking strategy is specified |
+| `default_chunk_overlap_tokens` | `<class 'int'>` | No | 400 | Default chunk overlap in tokens when no chunking strategy is specified |
+| `extract_metadata` | `<class 'bool'>` | No | True | Extract PDF metadata (title, author, creation date, etc.) |
+
+## Sample Configuration
+
+```yaml
+timeout_seconds: 30
+max_file_size_mb: 50
+default_chunk_size_tokens: 800
+default_chunk_overlap_tokens: 400
+extract_metadata: true
+```

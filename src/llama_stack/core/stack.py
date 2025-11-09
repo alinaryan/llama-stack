@@ -19,6 +19,7 @@ from llama_stack.apis.conversations import Conversations
 from llama_stack.apis.datasetio import DatasetIO
 from llama_stack.apis.datasets import Datasets
 from llama_stack.apis.eval import Eval
+from llama_stack.apis.file_processor import FileProcessor
 from llama_stack.apis.files import Files
 from llama_stack.apis.inference import Inference
 from llama_stack.apis.inspect import Inspect
@@ -82,6 +83,7 @@ class LlamaStack(
     Files,
     Prompts,
     Conversations,
+    FileProcessor,
 ):
     pass
 
@@ -195,6 +197,22 @@ async def validate_safety_config(safety_config: SafetyConfig | None, impls: dict
             f"Configured default_shield_id '{default_shield_id}' not found among registered shields."
             f" Available shields: {available}"
         )
+
+
+async def validate_file_processor_config(vector_stores_config: VectorStoresConfig | None, impls: dict[Api, Any]):
+    """Validate file processor configuration when vector stores are configured."""
+    if vector_stores_config is None:
+        return
+
+    # Check if vector stores configuration includes file processing capabilities
+    # If vector stores are configured, file processors might be needed for document ingestion
+    if hasattr(vector_stores_config, "file_processing_enabled") and vector_stores_config.file_processing_enabled:
+        if Api.file_processor not in impls:
+            raise ValueError(
+                "Vector stores configuration with file processing requires the file_processor API to be enabled"
+            )
+
+    logger.debug("File processor configuration validation completed")
 
 
 class EnvVarError(Exception):
@@ -435,6 +453,7 @@ class Stack:
         await refresh_registry_once(impls)
         await validate_vector_stores_config(self.run_config.vector_stores, impls)
         await validate_safety_config(self.run_config.safety, impls)
+        await validate_file_processor_config(self.run_config.vector_stores, impls)
         self.impls = impls
 
     def create_registry_refresh_task(self):

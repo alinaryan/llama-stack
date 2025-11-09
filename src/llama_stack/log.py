@@ -44,6 +44,7 @@ CATEGORIES = [
     "testing",
     "providers",
     "models",
+    "file_processor",
     "files",
     "vector_io",
     "tool_runtime",

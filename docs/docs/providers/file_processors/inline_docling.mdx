@@ -1,0 +1,29 @@
+---
+description: "Advanced document processing using Docling with table/figure extraction and native chunking"
+sidebar_label: Docling
+title: inline::docling
+---
+
+# inline::docling
+
+## Description
+
+Advanced document processing using Docling with table/figure extraction and native chunking
+
+## Configuration
+
+| Field | Type | Required | Default | Description |
+|-------|------|----------|---------|-------------|
+| `timeout_seconds` | `<class 'int'>` | No | 120 | Processing timeout in seconds |
+| `max_file_size_mb` | `<class 'int'>` | No | 100 | Maximum file size in MB |
+| `model_cache_dir` | `str \| None` | No |  | Directory to cache Docling models |
+| `enable_gpu` | `<class 'bool'>` | No | False | Enable GPU acceleration if available |
+
+## Sample Configuration
+
+```yaml
+timeout_seconds: 120
+max_file_size_mb: 100
+model_cache_dir: null
+enable_gpu: false
+```
