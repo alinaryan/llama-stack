@@ -28,7 +28,6 @@ from llama_stack_api import (
     ChunkForDeletion,
     DeleteChunksRequest,
     EmbeddedChunk,
-    FileProcessors,
     Files,
     Inference,
     InsertChunksRequest,
@@ -583,15 +582,9 @@ class PGVectorIndex(EmbeddingIndex):
 
 class PGVectorVectorIOAdapter(OpenAIVectorStoreMixin, VectorIO, VectorStoresProtocolPrivate):
     def __init__(
-        self,
-        config: PGVectorVectorIOConfig,
-        inference_api: Inference,
-        files_api: Files | None = None,
-        file_processor_api: FileProcessors | None = None,
+        self, config: PGVectorVectorIOConfig, inference_api: Inference, files_api: Files | None = None
     ) -> None:
-        super().__init__(
-            inference_api=inference_api, files_api=files_api, kvstore=None, file_processor_api=file_processor_api
-        )
+        super().__init__(inference_api=inference_api, files_api=files_api, kvstore=None)
         self.config = config
         self.conn = None
         self.cache = {}
